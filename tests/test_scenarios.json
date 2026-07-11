@@ -1,0 +1,22 @@
+[
+  {
+    "id": "S1",
+    "input": "Order saya 00275bce676303c3bfd7292aefdfa223 kapan sampai ya?",
+    "expected_agents": ["LogisticsAgent"]
+  },
+  {
+    "id": "S2",
+    "input": "Saya sudah bayar order 00275bce676303c3bfd7292aefdfa223 tapi mau tahu status pembayarannya, sudah lunas belum?",
+    "expected_agents": ["FinanceAgent"]
+  },
+  {
+    "id": "S3",
+    "input": "Produk yang saya terima kualitasnya jelek, apakah ada keluhan serupa dari pembeli lain untuk order sejenis?",
+    "expected_agents": ["QAAgent"]
+  },
+  {
+    "id": "S4",
+    "input": "Order saya telat lebih dari 14 hari, saya mau minta refund penuh",
+    "expected_agents": ["LogisticsAgent", "FinanceAgent"]
+  }
+]

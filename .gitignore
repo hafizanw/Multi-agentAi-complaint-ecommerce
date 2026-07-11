@@ -1,0 +1,8 @@
+.venv/
+.env
+__pycache__/
+*.pyc
+vectorstore/
+data/raw/*.csv
+.DS_Store
+*.egg-info/
