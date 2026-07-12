@@ -3,7 +3,45 @@
 Sistem Multi-Agent berbasis RAG untuk resolusi komplain pelanggan E-Commerce.
 Studi kasus enterprise multi-divisi: **Customer Service (Orchestrator), Finance, Logistics, dan Quality Assurance (QA)**, dengan **Evaluator Agent** independen untuk menilai kualitas jawaban akhir.
 
-> Status: **PHASE 1 — Project Foundation** (lihat `docs/PROGRESS.md` — akan ditambahkan pada phase akhir)
+## Setup
+
+```bash
+python -m venv .venv
+source .venv/bin/activate      # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.example .env           # lalu isi sesuai provider LLM pilihan (ollama/openai/anthropic)
+```
+
+## Taruh Dataset
+
+Salin 9 file CSV Olist ke folder `data/raw/`.
+
+## Build Vectorstore (jalan sekali di awal, atau tiap dataset berubah)
+
+```bash
+python -m src.ingestion.build_logistics_db
+python -m src.ingestion.build_finance_db
+python -m src.ingestion.build_qa_db
+```
+
+## Jalankan Sistem
+
+```bash
+# Uji satu agent
+python -c "from src.agents.logistics_agent import search_logistics; print(search_logistics('status pengiriman'))"
+
+# Uji orchestrator penuh
+python -m src.agents.orchestrator_agent "Order saya telat 20 hari, saya mau refund"
+
+# Evaluasi otomatis
+python -m src.agents.evaluator_agent
+
+# API
+uvicorn app.api:app --reload --port 8000
+
+# Demo visual
+streamlit run app/streamlit_demo.py
+```
 
 ## Tech Stack
 
@@ -43,25 +81,3 @@ tests/
 .gitignore
 requirements.txt
 ```
-
-## Setup (akan dilengkapi di PHASE 10)
-
-```bash
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env
-```
-
-## Roadmap Phase
-
-- [x] PHASE 1 — Project Foundation
-- [ ] PHASE 2 — Core Infrastructure
-- [ ] PHASE 3 — Data Layer
-- [ ] PHASE 4 — RAG Engine
-- [ ] PHASE 5 — Domain Agents
-- [ ] PHASE 6 — Orchestrator
-- [ ] PHASE 7 — Evaluation
-- [ ] PHASE 8 — API
-- [ ] PHASE 9 — Testing
-- [ ] PHASE 10 — Deployment & Documentation
