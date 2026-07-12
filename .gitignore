@@ -1,8 +1,78 @@
-.venv/
-.env
+# ==============================
+# Python
+# ==============================
 __pycache__/
-*.pyc
-vectorstore/
-data/raw/*.csv
-.DS_Store
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
 *.egg-info/
+.eggs/
+
+# ==============================
+# Virtual Environment
+# ==============================
+venv/
+env/
+.venv/
+ENV/
+
+# ==============================
+# Environment Variables
+# ==============================
+.env
+.env.local
+.env.*.local
+
+# ==============================
+# ChromaDB / Vector Store
+# ==============================
+data/chroma/
+data/vectordb/
+*.sqlite3
+*.parquet
+
+# ==============================
+# Model Cache
+# ==============================
+.cache/
+models/cache/
+*.bin
+*.gguf
+*.safetensors
+
+# ==============================
+# IDE
+# ==============================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ==============================
+# Logs
+# ==============================
+logs/
+*.log
+
+# ==============================
+# Testing & Coverage
+# ==============================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ==============================
+# OS
+# ==============================
+.DS_Store
+Thumbs.db
+
+# ==============================
+# Jupyter
+# ==============================
+.ipynb_checkpoints/
+*.ipynb

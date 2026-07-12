@@ -1,8 +1,59 @@
-pyautogen==0.2.35
-chromadb==0.5.5
-sentence-transformers==3.0.1
-pandas
-python-dotenv
-fastapi
-uvicorn
-streamlit
+# ==============================
+# Core Framework
+# ==============================
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+pydantic==2.10.3
+pydantic-settings==2.6.1
+
+# ==============================
+# LangGraph & LangChain
+# ==============================
+langgraph==0.2.60
+langchain==0.3.13
+langchain-core==0.3.28
+langchain-community==0.3.13
+langchain-huggingface==0.1.2
+
+# ==============================
+# Vector Database
+# ==============================
+chromadb==0.6.3
+
+# ==============================
+# Embeddings & Models
+# ==============================
+sentence-transformers==3.3.1
+transformers==4.46.3
+torch==2.5.1
+huggingface-hub==0.27.0
+accelerate==1.2.1
+
+# ==============================
+# Multi-LLM Provider Support
+# ==============================
+openai==1.58.1
+anthropic==0.40.0
+google-generativeai==0.8.3
+
+# ==============================
+# Data Processing
+# ==============================
+pandas==2.2.3
+numpy==1.26.4
+python-dotenv==1.0.1
+
+# ==============================
+# Utilities
+# ==============================
+loguru==0.7.3
+tenacity==9.0.0
+pyyaml==6.0.2
+
+# ==============================
+# Testing
+# ==============================
+pytest==8.3.4
+pytest-asyncio==0.24.0
+pytest-cov==6.0.0
+httpx==0.28.1
